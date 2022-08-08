@@ -1,25 +1,10 @@
-
 def has_path(graph, src, dst):
 
-    visited = set() 
-
-    for node in graph[src]:
-        if explore(graph, node, dst, visited) == True:
-            return True 
-
-    return False 
-
-def explore(graph, node, dst, visited):
-    if node in visited:
-        return False  
-
-    visited.add(node) 
-
-    if node == dst:
+    if src == dst:
         return True 
     
-    for neighbor in graph[node]:
-        if explore(graph, neighbor, dst, visited) == True:
+    for neighbor in graph[src]:
+        if has_path(graph, neighbor, dst) == True:
             return True 
 
     return False 
