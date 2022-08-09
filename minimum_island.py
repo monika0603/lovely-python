@@ -3,15 +3,17 @@ def minimum_island(grid):
 
     min_island = float("inf") 
     visited = set() 
+    output = []
 
     for row in range(len(grid)):
         for col in range(len(grid[0])):
             if grid[row][col] == 'L':
                 size = dfs(grid, row, col, visited)
                 if size > 0:
+                    output.append(size)
                     min_island = min(size, min_island) 
 
-    return min_island 
+    return min_island, output
 
 def dfs(grid, row, col, visited):
 
