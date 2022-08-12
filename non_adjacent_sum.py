@@ -34,15 +34,15 @@ def non_adjacent_sum_2(nums):
 def _non_adjacent_sum_2(nums, i, memo):
     if i >= len(nums):
         return 0 
-    if nums[i] in memo:
-        return memo[nums[i]] 
+    if i in memo:
+        return memo[i] 
 
     include = nums[i] + _non_adjacent_sum_2(nums, i + 2, memo)
     exclude = _non_adjacent_sum_2(nums, i + 1, memo)
 
-    memo[nums[i]] = max(include, exclude)
+    memo[i] = max(include, exclude)
 
-    return memo[nums[i]]
+    return memo[i]
 
 # Driver code 
 # Test case 01
