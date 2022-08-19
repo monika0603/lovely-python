@@ -33,7 +33,28 @@ def _array_stepper(numbers, i):
 
     return False 
 
+# Optimized solution using memoization
+def array_stepper_memo(numbers):
+    return _array_stepper_memo(numbers, 0, {})
 
+def _array_stepper_memo(numbers, i, memo):
+    if i in memo:
+        return memo[i] 
+
+    if i >= len(numbers):
+        return False 
+
+    if i == len(numbers)-1:
+        return True 
+
+    max_step = numbers[i]
+    for step in range(1, max_step+1):
+        if _array_stepper_memo(numbers, i+step, memo) == True:
+            memo[i] = True 
+            return True 
+
+    memo[i] = False 
+    return False 
 
 # Driver code 
 # Test case 01 
@@ -57,3 +78,13 @@ if __name__ == "__main__":
 
     # Test case 07
     print(array_stepper([1, 1, 1, 1, 0, 0])) # -> False
+
+    # Test case 08 
+    print(array_stepper_memo([ 
+    31, 30, 29, 28, 27,
+    26, 25, 24, 23, 22,
+    21, 20, 19, 18, 17,
+    16, 15, 14, 13, 12,
+    11, 10, 9, 8, 7, 6,
+    5, 3, 2, 1, 0, 0, 0
+    ])) # -> False
