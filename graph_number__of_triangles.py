@@ -1,3 +1,6 @@
+""" 
+Problem: Find the number of triangles in the edges list below. 
+"""
 
 import collections 
 def number_of_triangles(edges):
