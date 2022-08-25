@@ -10,6 +10,22 @@ class Node:
         self.left = left 
         self.right = right 
 
+def leaf_list_recursive(root):
+    result = []
+    return _leaf_list_recursive(root, result)
+
+def _leaf_list_recursive(root, result):
+    if root is None:
+        return [] 
+
+    if root.left is None and root.right is None:
+        result.append(root.val) 
+
+    _leaf_list_recursive(root.left, result)
+    _leaf_list_recursive(root.right, result)
+
+    return result 
+
 def leaf_list(root):
     if root is None:
         return []
@@ -52,7 +68,7 @@ if __name__ == "__main__":
     #  / \     \
     # d   e     f
 
-    print(leaf_list(a)) # -> [ 'd', 'e', 'f' ] 
+    print(leaf_list_recursive(a)) # -> [ 'd', 'e', 'f' ] 
 
     # Test case 02
     a = Node("a")
@@ -80,7 +96,7 @@ if __name__ == "__main__":
     #    /       \
     #   g         h
 
-    print(leaf_list(a)) # -> [ 'd', 'g', 'h' ]
+    print(leaf_list_recursive(a)) # -> [ 'd', 'g', 'h' ]
 
     # Test case 03
     a = Node(5)
@@ -106,7 +122,7 @@ if __name__ == "__main__":
     #      / \
     #     1  3
 
-    print(leaf_list(a)) # -> [ 20, 1, 3, 54 ]
+    print(leaf_list_recursive(a)) # -> [ 20, 1, 3, 54 ]
 
     # Test case 04 
     x = Node('x')
