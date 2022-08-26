@@ -24,7 +24,7 @@ def bottom_right_value(root):
         if current.right is not None:
             queue.append(current.right)
 
-    return result[0]
+    return result[-1]
 
 if __name__ == "__main__":
     a = Node(3)
