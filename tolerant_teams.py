@@ -3,6 +3,22 @@ Write a function, tolerant_teams, that takes in a list of rivalries as an argume
 pair of people who should not be placed on the same team. The function should return a boolean 
 indicating whether or not it is possible to separate people into two teams, without rivals being 
 on the same team. The two teams formed do not have to be the same size.
+
+Visualizing the graph problem:
+tolerant_teams([
+    ('philip', 'seb'),
+    ('raj', 'nader')
+    ])
+
+    philip ------ seb 
+    raj ------ nader 
+
+    Red team            Blue team
+    philip              seb 
+    raj                 nader 
+
+    i.e, adjacent node must be different colors. Meaning is the graph bipartite? 
+
 """
 
 import collections 
