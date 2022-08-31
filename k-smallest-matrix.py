@@ -27,4 +27,4 @@ if __name__ == "__main__":
         [3, 5, 9],
         [6, 8, 11]
     ]
-    print(smallest(grid, 5))
+    print(smallest(grid, 7))
