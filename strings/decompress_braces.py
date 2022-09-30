@@ -11,30 +11,33 @@ You may assume that the input is valid and the decompressed string will only con
 """
 
 def decompress_braces(string):
-  
-    num = 0
-    output = []
-    open_set = set(['{'])
-    close_set = set(['}'])
-    letters = 'abcdefghijklmnopqrstuvwxyz'
-  
-    s = ''
-    s1 = ''
-    for i in range(len(string)):
-        if string[i] in letters:
-            s1 += string[i]
-        if string[i] in open_set:
-            left = 0
-            right = 0 
-            num = int(string[i-1])
-        if string[i] in letters:
-            s += string[i]
-            right += 1 
-        if string[i] in close_set:
-            output.append(s[0:right+1]*num)
-            s = ''
-    print(string.index(s1))         
-    return "".join(output) 
+    
+    number_chars = '123456789'
+    stack = [] 
+    for char in string:
+        if char in number_chars:
+            stack.append(int(char)) 
+        else:
+            if char == '}':
+                segment = ''
+                while not isinstance(stack[-1], int):
+                    popped = stack.pop()
+                    segment = popped + segment
+                num = stack.pop()
+                stack.append(segment*num)
+                
+            elif char != '{':
+                stack.append(char)
 
-print(decompress_braces("2{q}3{tu}v"))
+    return "".join(stack)
+    
+if __name__ == "__main__":
+    print(decompress_braces("2{q}3{tu}v")) # -> qqtututuv 
+
+    # Test case 01
+    print(decompress_braces("ch3{ao}")) # -> chaoaoao 
+
+    # Test case 02
+    print(decompress_braces("2{y3{o}}s"))
+    # -> yoooyooos
       
