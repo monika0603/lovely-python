@@ -18,30 +18,33 @@ Because "foo(bar(baz))blim" becomes "foo(barzab)blim" and then "foobazrabblim".
 
 def reverse_characters(s):
 
-    stack = []
-    
+    stack = [] 
+
     for char in s:
         if char == ')':
             segment = ''
             while not stack[-1] == '(':
-                popped = stack.pop()
+                popped = stack.pop() 
                 segment += popped 
-            stack.append(segment)
+            stack.pop() # Remove the closing bracket
+            for i in segment:
+                stack.append(i)
         else:
-            stack.append(char)
+            stack.append(char) 
 
-    stack = "".join(stack) 
-    stack = stack.replace('(','')
-    return stack 
+    stack = "".join(stack)
+    return  stack 
+
+
 
 if __name__ == "__main__":
     s = '(bar)'
-    print(reverse_characters(s))
+    print(reverse_characters(s)) # rab
 
     # Test case 01
     s = "foo(bar)baz"
-    print(reverse_characters(s)) 
+    print(reverse_characters(s)) # foorabbaz
 
     # Test case 02
     s = "foo(bar(baz))blim" 
-    print(reverse_characters(s))
+    print(reverse_characters(s)) # foobazrabblim"
