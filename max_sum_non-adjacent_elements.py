@@ -24,7 +24,6 @@ def _max_sum(numbers, i, previous):
 
     incl = 0 
     if previous + 1 != i:
-        print((previous+1), i)
         incl = _max_sum(numbers, i+1, i) + numbers[i] 
 
     return max(excl, incl) 
