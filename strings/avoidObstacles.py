@@ -10,6 +10,13 @@ Example
 
 For inputArray = [5, 3, 6, 7, 9], the output should be
 solution(inputArray) = 4.
+
+Algorithm:
+1. Create two variable position = 0 and step = 1 
+2. Loop over as long as position <= max value in the input
+3. if pos in the input, increment the step and initialize position back to zero 
+4. else increment position with step 
+5. return step at the end 
 """
 
 def avoid_obstacles(nums):
