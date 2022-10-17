@@ -12,7 +12,6 @@ There are 3 different characters a, b and c.
 def differentSymbolsNaive(s):
 
     count_s = {}
-
     for i in range(len(s)):
         count_s[s[i]] = 1 + count_s.get(i, 0) 
 
