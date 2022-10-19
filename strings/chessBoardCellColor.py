@@ -17,7 +17,7 @@ def chess_board(cell1, cell2):
         a = []
         for j,n in enumerate(cols):
             if (i%2 == 0) and (j%2 != 0):
-                a.append(str(n)+i)
+                a.append(str(n)+str(i))
             else:
                 a.append('B')
         matrix.append(a)
