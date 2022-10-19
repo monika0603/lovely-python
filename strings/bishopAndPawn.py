@@ -8,7 +8,7 @@ diagonal movement. Check out the example below to see how it can move:
 
 def bishopPawan(bishop, pawn):
 
-    return abs(int(bishop[1])-int(pawn[1])) == abs(ord(bishop[0]) - ord(pawn[0]))
+    return abs(int(bishop[1]) - int(pawn[1])) == abs(ord(bishop[0]) - ord(pawn[0]))
 
 if __name__ == "__main__":
     bishop = 'a1'
