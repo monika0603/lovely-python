@@ -10,7 +10,6 @@ solution(inputString) = "123".
 def digitPrefix(input):
 
     output = ''
-
     for i in input:
         if i.isdigit():
             output += i 
