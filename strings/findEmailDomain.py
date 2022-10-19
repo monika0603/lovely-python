@@ -40,8 +40,6 @@ def findEmailDomain(address):
         output = address.split('@')
         if output[1].find('_') != -1:
             return 'Not allowed'
-        if len(output[0] > 64):
-            return 'Not allowed'
         return output[1] 
 
     
