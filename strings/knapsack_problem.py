@@ -21,6 +21,12 @@ For value1 = 5, weight1 = 3, value2 = 7, weight2 = 4, and maxW = 6, the output s
 solution(value1, weight1, value2, weight2, maxW) = 7.
 
 You can't take both items, but you can take any of them.
+
+Algorithm:
+1. if the sum of two weights is less than the max weight, then temp = value1 + value2 
+2. Else, if both weights are less than maxW, then temp = max value 
+3. Within the else statement, if weight1 < maxW, them temp += value1. 
+Elif weight2 < maxW, then temp += value2 
 """
 
 def knapsack(value1, weight1, value2, weight2, maxW): 
