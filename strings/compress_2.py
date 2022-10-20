@@ -34,6 +34,10 @@ def compress(s):
             i += 1
             j += 1
             count = 1 
+
+    if count > 1:
+        result.append(str(count))
+    result.append(s[i])
     
     return "".join(result) 
 
