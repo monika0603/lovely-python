@@ -20,6 +20,7 @@ def common_prefix(strs):
 
     result = ""
     # Takes the first word and iterates over the length of the first word
+    # length os str[0] == 0
     for i in range(len(strs[0])):
         # Loops over each word in the list
         for s in strs:
